@@ -1,0 +1,49 @@
+{% extends 'core/base.html' %}
+{% load static %}
+{% block content %}
+    <!-- CABEZERA -->
+    <section class="row">
+        <div class="col s12 m4 position-description">
+            <div class="card-panel">
+                <h6 class="center">
+                    Dejate sorprender 
+                </h6>
+                <h5 class="center">
+                    Te gustara
+                </h5>
+                <p class="center">
+                    Trabajamos solo con los mejores ingredientes. Una vez lo pruebes, 
+                    nuestro cafe sera la mejor forma de empezar una rutina diaria
+                </p>
+                <div class="center btn-position">
+                    <a class="btn amber accent-3" href="">Visitanos</a>
+                </div>
+            </div>
+        </div>
+        <div class="col s12 m8">
+            <img class="responsive-img" src="{% static 'core/img/intro.jpg' %}" alt="">
+        </div>
+    </section>
+    <!-- /CABEZERA -->
+
+    <!-- MENSAJE -->
+    <section class="row position-msg yellow darken-3">
+        <div class="col s12 m6 offset-m3">
+            <div class="card-panel center position-msg-panel">
+                <h5>
+                    Compromiso total
+                </h5>
+                <h3>
+                    Garantizado
+                </h3>
+                <p>
+                    Sed pulvinar blandit elit id venenatis. ut eget lacus neque,
+                    Nullam justo quam, efficitur nec turpis vitae, efficitur posuere ligula.
+                    Proin ut turpis orci. Aeenean porta sodales lectur faucibus pellentesque.
+                    In sed felis iaculis rhoncus felis a, maximus mi.
+                </p>
+            </div>
+        </div>
+    </section>
+    <!-- /MENSAJE -->
+{% endblock content %}

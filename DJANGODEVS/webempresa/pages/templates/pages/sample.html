@@ -1,0 +1,25 @@
+{% extends 'core/base.html' %}
+
+{% load static %}
+
+{% block title %}Muestra{% endblock %}
+
+{% block content %}
+<section class="">
+    <div class="row">
+        <div class="col l8 offset-l2">
+          <div class="card-panel white">
+            <h2 class="center">
+              <span class="section-heading-lower">{{page.title}}</span>
+            </h2>
+            <div class="section-content">
+              {{page.content|safe}}
+              {% if user.is_authenticated %}
+                <p><a href="{% url 'admin:pages_page_change' page.id %}">Editar</a></p>
+              {% endif %}
+            </div>
+          </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

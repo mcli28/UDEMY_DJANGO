@@ -1,0 +1,144 @@
+/* ESTILOS BASE */
+.background-container {
+    position: absolute;
+}
+.bg-img {
+    position: inherit;
+    z-index: -5;
+    width: 100%;
+    height: 100%;
+}
+.position-footer {
+    /* position: relative;
+    bottom: -170px; */
+    margin-top: 100px;
+    padding: 0;
+    height: 110px;
+}
+/* /ESTILOS BASE */
+
+.btn-position {
+    position: relative;
+    top: 40px;
+}
+
+.size-img {
+    position: relative;
+    left: -69px;
+    z-index: -1;
+    width: 800px;
+    height: 500px;
+}
+
+.position-description {
+    position: relative;
+    top: 100px;
+}
+.position-title {
+    position: relative;
+    top: 0;
+}
+
+.position-header {
+    position: relative;
+    top: 80px;
+}
+
+.position-msg {
+    position: relative;
+    top: 110px;
+    height: 400px;
+    margin: 0;
+}
+
+.position-msg-panel {
+    position: relative;
+    top: 60px;
+}
+
+
+/* ESTILOS SERVICES */
+.services-title{
+    width: 50%;
+    position: relative;
+    top: 80px;
+    left: 80px;
+    opacity: 0.7;
+}
+.services-img{
+    position: relative;
+    left: 250px;
+    z-index: -1;
+    border-radius: 5px;
+}
+.services-content{
+    width: 50%;
+    position: relative;
+    left: 615px;
+    top: -65px;
+    padding: 35px 50px;
+    opacity: 0.9;
+}
+
+/* /ESTILOS SERVICES */
+
+/* ESTILOS BLOG */
+.blog-img{
+    width: 100%;
+    border-radius: 10px;
+}
+.blog-content{
+    border-radius: 10px;
+}
+.blog-fecha{
+    margin-top: 20px;
+    margin-bottom: 0px;
+}
+.blog-title{
+    margin-top: 0px;
+    margin-bottom: 50px;
+}
+/* /ESTILOS BLOG */
+
+/* ESTILOS SOCIAL */
+.social-link{
+    display: inline-block;
+    width: 45px;
+}
+.social-icon{
+    color: white;
+    position: relative;
+    z-index: 1;
+    font-size: 25px;
+}
+.sitwitter{
+    left: 10px;
+    top: 33px;
+}
+.sifacebook{
+    left: 10px;
+    top: 34px
+}
+.siinstagram{
+    left: 11px;
+    top: 33px;
+}
+.social-icon-container{
+    color: #0d47a1;
+    position: relative;
+    left: 10px;
+    font-size: 38px;
+
+}
+/* /ESTILOS SOCIAL */
+
+/* ESTILOS CONTACT */
+.contact-content{
+    opacity: 0.9;
+    position: relative;
+    top: -80px;
+}
+.contact-btn-submit{
+    width: 100%;
+}
+/* /ESTILOS CONTACT */

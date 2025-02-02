@@ -1,0 +1,34 @@
+{% extends 'core/base.html' %}
+{% load static %}
+{% block title %}Blog{% endblock %}
+{% block content %}
+
+{% for post in posts %}
+<section class="yellow darken-3">
+  <div class="row">
+    <div class="col l8 offset-l2">
+      <div class="card-panel blog-content">
+        <h6 class="center blog-fecha">{{post.published|date:"SHORT_DATE_FORMAT"}}</h6>
+        <h2 class="center blog-title"> {{post.title}} </h2>
+        <img class="blog-img" src="{{post.image.url}}" alt="">
+        <p class="center"> {{post.content|linebreaks}} </p>
+        <p class="center">
+            Publicado por 
+            <em><b>{{post.author}}</b></em> en 
+            <em>
+            {% for category in post.categories.all %}
+              <a href="{% url 'category' category.id %}" class="link">{{category.name}}</a> 
+              {% if not forloop.last %} , {% endif %}
+            {% endfor %}
+            </em>
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+{% endfor %}
+  
+{% endblock %}
+
+
+    

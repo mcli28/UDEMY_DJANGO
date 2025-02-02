@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Inicio | La Caffettiera</title>
+
+    {% load static %}
+    <!-- CSS -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link
+        rel="stylesheet" 
+        href="https://use.fontawesome.com/releases/v5.5.0/css/all.css"
+        integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU"
+        crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'core/css/materialize.css' %}">
+    <link rel="stylesheet" href="{% static 'core/css/base.css' %}">
+</head>
+
+<body>
+    <div class="background-container">
+        <img class="bg-img" src="{% static 'core/img/bg.jpg' %}" alt="">
+        <section>
+            <div class="row center position-title">
+                <div class="col s12">
+                    <h1 class="header amber-text text-accent-2">L'autentico caffè d'italia </h1>
+                    <h2 class="white-text">La Caffettiera</h2>
+                </div>
+            </div>
+            <!-- NAVEGACION -->
+            <nav>
+                <div class="nav-wrapper brown darken-4">
+                    <a href="{% url 'home' %}" class="brand-logo">La Caffettiera</a>
+                    <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+                    <ul class="right hide-on-med-and-down">
+                        <li><a class="{% if request.path == '/' %} amber-text text-accent-2 {%endif%}" href="{% url 'home' %}">Inicio</a></li>
+                        <li><a class="{% if request.path == '/about/' %} amber-text text-accent-2 {%endif%}" href="{% url 'about' %}">Historia</a></li>
+                        <li><a class="{% if request.path == '/services/' %} amber-text text-accent-2 {%endif%}" href="{% url 'services' %}">Servicios</a></li>
+                        <li><a class="{% if request.path == '/store/' %} amber-text text-accent-2 {%endif%}" href="{% url 'store' %}">Visitanos</a></li>
+                        <li><a class="{% if request.path == '/contact/' %} amber-text text-accent-2 {%endif%}" href="{% url 'contact' %}">Contacto</a></li>
+                        <li><a class="{% if request.path|slice:":6" == '/blog/' %} amber-text text-accent-2 {%endif%}" href="{% url 'blog' %}">Blog</a></li>
+                    </ul>
+                </div>
+            </nav>
+            <ul class="sidenav" id="mobile-demo">
+                <li><a href="">Inicio</a></li>
+                <li><a href="">Historia</a></li>
+                <li><a href="">Servicios</a></li>
+                <li><a href="">Visitanos</a></li>
+                <li><a href="">Contacto</a></li>
+                <li><a href="">Blog</a></li>
+            </ul>
+            <!-- /NAVEGACION -->
+        </section>
+        {% block content %}
+        {% endblock content %}
+    
+        <!-- FOOTER -->
+        <footer class="page-footer position-footer brown darken-3">
+            <div class="container">
+                <div class="row">
+                    <div class="col s12">
+                        <p class="center">
+                            {% if LINK_TWITTER %}
+                            <a href="{{LINK_TWITTER}}" class="social-link">
+                                <i class="fab fa-twitter  social-icon sitwitter"></i>
+                                <i class="fas fa-circle social-icon-container"></i>
+                            </a>
+                            {% endif %}
+                            {% if LINK_FACEBOOK %}
+                            <a href="{{LINK_FACEBOOK}}" class="social-link">
+                                <i class="fab fa-facebook-f  social-icon sifacebook"></i>
+                                <i class="fas fa-circle social-icon-container"></i>
+                            </a>
+                            {% endif %}
+                            {% if LINK_INSTAGRAM %}
+                            <a href="{{LINK_INSTAGRAM}}" class="social-link">
+                                <i class="fab fa-instagram  social-icon siinstagram"></i>
+                                <i class="fas fa-circle social-icon-container"></i>
+                            </a>
+                            {% endif %}
+                        </p>
+                        <p class="center">
+                            <!-- <a href="">Politica de privacidad</a>
+                            <a href="">Aviso legal</a>
+                            <a href="">Cookies</a> -->
+                            {% load pages_extras %}
+                            {% get_page_list as page_list %}
+                            {% for page in page_list%}
+                                <a href="{% url 'page' page.id page.title|slugify %}" class="link">{{page.title}}</a> {% if not forloop.last %}-{% endif %}
+                            {% endfor %}
+                        </p>
+                        <p class="center">La Caffettiera 2018</p>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <!-- FOOTER -->
+    </div>
+    <script src="{% static 'core/js/jquery.js' %}"></script>
+    <script src="{% static 'core/js/materialize.js' %}"></script>
+    <script>
+        $(document).ready(function () {
+            $('.sidenav').sidenav();
+            $('textarea#id_content').characterCounter();
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,25 @@
+{% extends 'core/base.html' %}
+{% load static %}
+{% block title %}Servicios{% endblock %}
+{% block content %}
+
+{% for service in services %}
+  <section class="row">
+    <div class="col s12 m12 l12">
+      <div class="card-panel services-title">
+        <h2 class="section-heading">
+          <span class="">{{service.subtitle}}</span>
+          <span class="">{{service.title}}</span>
+        </h2>
+      </div>
+      <img class="services-img" src="{{service.image.url}}" alt="">
+      <div class="card-panel services-content">
+        <p class="">
+          {{service.content}}
+        </p>
+      </div>
+    </div>
+  </section>
+{% endfor %}
+
+{% endblock %}

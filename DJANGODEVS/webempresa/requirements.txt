@@ -1,0 +1,5 @@
+django==2.0.2
+gunicorn
+django-heroku
+whitenoise
+django-ckeditor

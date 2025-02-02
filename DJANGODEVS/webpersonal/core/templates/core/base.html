@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    {% load static %}
+    <!-- ESTILOS Y FUENTES DEL TEMPLATE -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link
+        rel="stylesheet" 
+        href="https://use.fontawesome.com/releases/v5.5.0/css/all.css"
+        integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU"
+        crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'core/css/materialize.css' %}">
+    <link rel="stylesheet" href="{% static 'core/css/base.css' %}">
+    <!-- /ESTILOS Y FUENTES DEL TEMPLATE -->
+    <title>{% block title %}{% endblock title %} | Mi Web Personal</title>
+</head>
+<body>
+
+    <!-- NAVEGACION -->
+    <nav>
+        <div class="nav-wrapper light-blue">
+            <a class="brand-logo" href="{% url 'home' %}">Mcli28</a>
+            <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+            
+            <ul class="right hide-on-med-and-down">
+                <li><a class="white-text" href="{% url 'home' %}">Portada</a></li>
+                <li><a class="white-text" href="{% url 'about' %}">Acerca de</a></li>
+                <li><a class="white-text" href="{% url 'portfolio' %}">Portafolio</a></li>
+                <li><a class="white-text" href="{% url 'contact' %}">Contacto</a></li>
+            </ul>
+            
+        </div>
+    </nav>
+    <ul class="sidenav" id="mobile-demo">
+        <li><a class="blue-text text-accent-2" href="{% url 'home' %}"><i class="material-icons">desktop_windows</i>Portada</a></li>
+        <li><a class="blue-text text-accent-2" href="{% url 'about' %}"><i class="material-icons">person</i>Acerca de</a></li>
+        <li><a class="blue-text text-accent-2" href="{% url 'portfolio' %}"><i class="material-icons">assignment_ind</i>Portafolio</a></li>
+        <li><a class="blue-text text-accent-2" href="{% url 'contact' %}"><i class="material-icons">contact_phone</i>Contacto</a></li>
+    </ul>
+
+    <!-- /NAVEGACION -->
+    
+    <!-- CONTENIDO -->
+    <header class="container">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <img src="{% block background%} {% endblock background%}" alt="" class="responsive-img">
+                {% block headers %} {% endblock %}
+            </div>
+        </div>
+    </header>
+    <!-- /CONTENIDO -->
+    <div class="container">
+        <div class="row">
+            {% block content %} {% endblock %}
+        </div>
+    </div>    
+
+
+    {% if request.path != "/" %}
+        <hr>
+    {% endif %}
+            
+    <div class="fixed-action-btn">
+        <a class="btn-floating btn-large red">
+          <i class="large material-icons">mode_edit</i>
+        </a>
+        <ul>
+          <li><a class="btn-floating red" href="{% url 'home' %}"><i class="material-icons">desktop_windows</i></a></li>
+          <li><a class="btn-floating yellow darken-1" href="{% url 'about' %}"><i class="material-icons">person</i></a></li>
+          <li><a class="btn-floating green" href="{% url 'portfolio' %}"><i class="material-icons">assignment_ind</i></a></li>
+          <li><a class="btn-floating blue" href="{% url 'contact' %}"><i class="material-icons">contact_phone</i></a></li>
+        </ul>
+    </div>
+    
+    <!-- PIE DE PAGINA -->
+    <footer class="page-footer light-blue">
+        <div class="container">
+            <div class="row">
+                <div class="col s12">
+                    <p class="center">
+                        <a href="#" class="social-link">
+                            <i class="fab fa-twitter social-icon sitwitter"></i>
+                            <i class="fas fa-circle social-icon-container"></i>
+                        </a>
+                        <a href="#" class="social-link">
+                            <i class="fab fa-github social-icon sifacebook"></i>
+                            <i class="fas fa-circle social-icon-container"></i>
+                        </a>
+                        <a href="#" class="social-link">
+                            <i class="fab fa-youtube social-icon siinstagram"></i>
+                            <i class="fas fa-circle social-icon-container"></i>
+                        </a>
+                    </p>
+                    <p class="center">Copyright &copy; 2020 · Limber Mancilla (developer) </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- /PIE DE PAGINA -->
+    
+    <script src="{% static 'core/js/jquery.js' %}"></script>
+    <script src="{% static 'core/js/materialize.js' %}"></script>
+    <script>
+
+        document.addEventListener('DOMContentLoaded', function() {
+            var elems = document.querySelectorAll('.fixed-action-btn');
+            var instances = M.FloatingActionButton.init(elems, options);
+        });
+
+        $(document).ready(function () {
+            $('.sidenav').sidenav();
+            $('textarea#id_content').characterCounter();
+            $('.fixed-action-btn').floatingActionButton();
+        });
+    </script>
+</body>
+</html>
